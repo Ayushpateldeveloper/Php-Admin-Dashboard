@@ -1,5 +1,7 @@
 <?php 
 include('../includes/dbcon.php');
+
+//insert
 if (isset($_POST['save'])) {
    
     $profile_image=$_FILES['profile_image']['name'];
@@ -39,8 +41,12 @@ if (isset($_POST['save'])) {
   
 }
 
+//update
 if (isset($_POST['update'])) {
 
+
+  $profile_image=$_FILES['profile_image']['name'];
+  move_uploaded_file($_FILES['profile_image']['tmp_name'],'../pages/Profile_photo/'.$profile_image);
     $id = $_POST['editUser_Data'];
     $emp_id = $_POST['emp_id'];
     $first_name = $_POST['first_name'];
@@ -60,7 +66,7 @@ if (isset($_POST['update'])) {
     $updateSql = "UPDATE user_data SET emp_id = '$emp_id', first_name = '$first_name', middle_name = '$middle_name', 
                         last_name = '$last_name',education = '$education', contact_number = '$contact_number', email_id = '$email_id', 
                         address = '$address',designation = '$designation', date_of_joining = '$date_of_joining', salary = '$salary', 
-                        martial_status = '$martial_status',gender = '$gender', birthdate = '$birthdate'  WHERE id = $id";
+                        martial_status = '$martial_status',gender = '$gender', birthdate = '$birthdate', profile_image ='$profile_image'  WHERE id = '$id'";
 
     $updateQuery = sqlsrv_query($Con, $updateSql);
 
@@ -70,5 +76,25 @@ if (isset($_POST['update'])) {
       header('Location:user.php');
     }
   }
+
+  //soft_delete
+
+  if (isset($_POST['restoreId'])) {
+    $id = $_POST['restoreId'] ;
+  
+
+    // Perform the delete query
+    $deleteSql = "UPDATE user_data  set isActive='0' WHERE id = ?";
+    $params = array($id);
+
+    $deleteQuery = sqlsrv_query($Con, $deleteSql, $params);
+
+    if ($deleteQuery === false) {
+        echo "error: " . print_r(sqlsrv_errors(), true);
+    } else {
+        echo 'data successfully deleted';
+        header('Location:user.php');
+}
+}
 
 ?> 

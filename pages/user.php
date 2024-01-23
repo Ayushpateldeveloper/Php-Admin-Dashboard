@@ -59,7 +59,7 @@
                         <td class="date_of_joining"><?php echo $date_of_joining ?></td>
                         <td>
                             <a href="user_data_update.php?id=<?php echo $row['id']?>" class="btn btn-primary edit"><i class='bx bxs-edit'></i>&nbsp;&nbsp;Edit</a>
-                            <button type="button" class="btn btn-danger delete" id="<?php echo $row['id']?>"><i class='bx bxs-trash'></i>
+                            <button type="button" class="btn btn-danger soft_delete" id="<?php echo $row['id']?>"><i class='bx bxs-trash'></i>
                             Delete
                             </button>
                             <button type="button" class="btn btn-warning pdf" data-record-id="<?php echo $row['id'] ?>">
@@ -87,6 +87,27 @@
             buttons: ['pageLength', 'copy', 'excel', 'pdf', 'colvis'],
             stateSave: true
         });
+    });
+
+    $(document).on("click", ".soft_delete", function() {
+        var restoreId = $(this).attr('id');
+        // console.log(restoreId);
+        if(confirm('Are You Sure')){
+            $.ajax({
+                url: 'user_db.php',
+                method: 'POST',
+                data: {restoreId:restoreId},
+                success: function(data) {
+                alert(data);
+                 window.reload();
+                },
+                error: function(data) {
+                console.log(error);
+                }
+            });
+        }else{
+            return false;
+        }
     });
 </script>
 <?php
