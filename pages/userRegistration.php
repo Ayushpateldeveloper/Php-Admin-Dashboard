@@ -5,6 +5,10 @@ include ('../includes/dbcon.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'    ) {
    
+    $profile_image=$_FILES['profile_image']['name'];
+    move_uploaded_file($_FILES['profile_image']['tmp_name'],'../pages/Profile_photo/'.$profile_image);
+    // print_r($_FILES);
+    // die();
     $emp_id = $_POST['emp_id'];
     $first_name = $_POST['first_name'];
     $middle_name = $_POST['middle_name'];
@@ -20,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'    ) {
     $gender = $_POST['gender'];
     $birthdate = $_POST['birthdate'];
 
-    $sql = "INSERT into user_data (emp_id, first_name, middle_name, last_name, education, contact_number,email_id,address,designation,date_of_joining,salary,martial_status,gender,birthdate) 
-                values ('$emp_id', '$first_name', '$middle_name', '$last_name', '$education', '$contact_number','$email_id','$address','$designation','$date_of_joining','$salary','$martial_status','$gender','$birthdate')";
+    $sql = "INSERT into user_data (emp_id, first_name, middle_name, last_name, education, contact_number,email_id,address,designation,date_of_joining,salary,martial_status,gender,birthdate,profile_image) 
+                values ('$emp_id', '$first_name', '$middle_name', '$last_name', '$education', '$contact_number','$email_id','$address','$designation','$date_of_joining','$salary','$martial_status','$gender','$birthdate','$profile_image')";
 
 $run = sqlsrv_query($Con, $sql);
 
@@ -33,13 +37,17 @@ $run = sqlsrv_query($Con, $sql);
     }
   
 }
+
+
+
+
 ?>
 
 
 <div>
     <a href="user.php"><button class="btn btn-primary" type="button"> <i class='bx bx-arrow-back'></i>&nbsp;Back</button></a>
 </div>
-<form class="mt-5" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+<form class="mt-5" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
 
     <div class="form-group">
         <label for="exampleInputPassword">Employee ID</label>
@@ -81,7 +89,7 @@ $run = sqlsrv_query($Con, $sql);
     
     <div class="form-group mt-2">
         <label for="">Date of Joining</label>
-        <input type="text" class="form-control" name="date_of_joining" id="" placeholder="e.g. DD/MM/YYYY">
+        <input type="date" class="form-control" name="date_of_joining" id="" placeholder="e.g. DD/MM/YYYY">
     </div>
     
     <div class="form-group mt-2">
@@ -97,10 +105,15 @@ $run = sqlsrv_query($Con, $sql);
     </div>
     <div class="form-group mt-2">
         <label for=""> BirthDate</label>
-        <input type="text" class="form-control" name="birthdate" id="" placeholder="e.g. DD/MM/YYYY">
+        <input type="date" class="form-control" name="birthdate" id="" placeholder="e.g. DD/MM/YYYY">
     </div>
+    <div class="form-group mt-2">
+        <label for=""> Profile Pic</label>
+        <input type="file" class="form-control" name="profile_image" id="" placeholder="Upload your image">
+    </div>
+    
    
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary mt-3 mb-5">Submit</button>
 </form>
 
 
