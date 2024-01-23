@@ -5,7 +5,7 @@ $id = $_GET['id'];
 $sql = "SELECT * FROM user_data WHERE id = '$id' AND isActive = 1";
 $query = sqlsrv_query($Con, $sql);
 $row = SQLSRV_FETCH_ARRAY($query, SQLSRV_FETCH_ASSOC);
-// print_r($row);die();
+
 ?>
     <div class="container-fluid">
         <form class="mt-5" action="user_db.php" method="post" id="update_form">
