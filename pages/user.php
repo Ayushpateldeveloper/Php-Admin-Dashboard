@@ -1,5 +1,4 @@
 <?php
-ob_start();
 include('../includes/header.php');
 include('../includes/dbcon.php');
 $sql = 'SELECT * FROM user_data WHERE isActive = 1';
@@ -13,15 +12,15 @@ $query = sqlsrv_query($Con, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #userDataTable_wrapper  .dt-buttons{
-            margin-bottom: 30px !important;
+        table.dataTable{
+            border-collapse: collapse;
         }
     </style>
 </head>
 
 <body>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row mb-2">
             <div class="col">
                 <h3>User Data</h3>
             </div>
@@ -55,7 +54,7 @@ $query = sqlsrv_query($Con, $sql);
                     ?>
                         <tr>
                             <td><?php echo $row['id'] ?></td>
-                            <td><img src="<?php echo $img_path . $row['profile_image'] ?>" width="40px" height="40px"></td>
+                            <td><img src="<?php echo $img_path . $row['profile_image'] ?>" width="40px" height="40px" class="rounded-circle rounded-lg border border-info" ></td>
                             <td class="emp_id"><?php echo $row['emp_id'] ?></td>
                             <td class="first_name"><?php echo $row['first_name'] ?></td>
                             <td class="middle_name"><?php echo $row['middle_name'] ?></td>

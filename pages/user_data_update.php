@@ -58,8 +58,12 @@ $row = SQLSRV_FETCH_ARRAY($query, SQLSRV_FETCH_ASSOC);
             <label class="w-25 ms-2" for="">Martial Status
                 <input type="text" class="form-control" name="martial_status" value="<?php echo $row['martial_status'] ?>">
             </label>
-            <label class="w-25 ms-2" for="">Gender
-                <input type="text" class="form-control" id="" name="gender" value="<?php echo $row['gender'] ?>">
+            <label for="gender" class="form-label w-25 ms-2 ">Gender
+            <select class="form-select" id="gender" name="gender">
+                <option value="Male" <?php echo ($row['gender'] == 'Male') ? 'selected' : ''; ?>>Male</option>
+                <option value="Female" <?php echo ($row['gender'] == 'Female') ? 'selected' : ''; ?>>Female</option>
+                <option value="Other" <?php echo ($row['gender'] == 'Other') ? 'selected' : ''; ?>>Other</option>
+            </select>
             </label>
         </div>
         <div class="d-flex mt-2">
@@ -72,6 +76,7 @@ $row = SQLSRV_FETCH_ARRAY($query, SQLSRV_FETCH_ASSOC);
             <label class="w-25 ms-2" for="">Profile Pic
             <div class="input-group mb-1">
                 <input type="file" class="form-control" name="profile_image" accept="image/*">
+                <input type="hidden" name="imageName" value="<?php echo $row['profile_image'] ?>">
                 <?php if (!empty($row['profile_image'])) {
                     $img_path = "http://localhost/Php-Admin-Dashboard/pages/Profile_photo/"
                 ?>

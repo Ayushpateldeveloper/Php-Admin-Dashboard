@@ -50,9 +50,13 @@ include ('../includes/dbcon.php');
         <label class="w-25 ms-2" for="">Martial Status
         <input type="text" class="form-control" name="martial_status" id="" placeholder="Married,Unmarried,Divorced">
         </label>
-        <label class="w-25 ms-2" for="">Gender
-        <input type="text" class="form-control" id="" name="gender" placeholder="M,F,O">
-        </label>
+        <label for="gender" class="form-label">Gender
+            <select class="form-select" id="gender" name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            </label>
     </div>
     <div class="d-flex mt-2">
         <label  class="w-25" for=""> BirthDate
