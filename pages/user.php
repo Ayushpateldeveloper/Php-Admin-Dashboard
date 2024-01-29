@@ -67,9 +67,7 @@ $query = sqlsrv_query($Con, $sql);
                                 <a href="user_data_update.php?id=<?php echo $row['id'] ?>" class="btn btn-primary edit"><i class='bx bxs-edit'></i></a>
                                 <button type="button" class="btn btn-danger soft_delete" id="<?php echo $row['id'] ?>"><i class='bx bxs-trash'></i>
                                 </button>
-                                <button type="button" class="btn btn-warning pdf" data-record-id="<?php echo $row['id'] ?>">
-                                    <i class='bx bxs-file-pdf'></i>
-                                </button>
+                                <a href="user_pdf.php?id=<?php echo $row['id'];?>" class="btn btn-warning"><i class='bx bxs-file-pdf'></i></a>
                             </td>
                         </tr>
                     <?php } ?>
