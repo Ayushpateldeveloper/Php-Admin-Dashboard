@@ -1,4 +1,6 @@
-    <!DOCTYPE html>
+   <?php
+   include('session.php');
+   ?> <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -65,7 +67,7 @@
                         <a href="../pages/product.php" class="nav_link" id="product"> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Products</span> </a> 
                     </div>
                 </div> 
-                <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
+                <a href="http://localhost/Php-Admin-Dashboard/includes/session.php?action=logout" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
             </nav>
         </div>
         <!--Container Main start-->

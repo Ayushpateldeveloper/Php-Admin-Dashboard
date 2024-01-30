@@ -1,6 +1,14 @@
 <?php 
+session_start();
 include('../includes/header.php');
+
+
+
+
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +19,8 @@ include('../includes/header.php');
 <body>
     <div class="container-fluid">
         <h1>New Page</h1>
+        <?php
+        echo $_SESSION['empname'];?>
     </div>
 </body>
 </html>

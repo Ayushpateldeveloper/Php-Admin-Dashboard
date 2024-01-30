@@ -1,8 +1,10 @@
 <?php 
+    session_start();
 include('includes/dbcon.php');
 if(isset($_POST['save'])){
     $empid = $_POST['empid'];
     $password = $_POST['password'];
+
 
 
     $sql = "SELECT * FROM emp_data where empid = '$empid' and password = '$password'";
@@ -10,9 +12,14 @@ if(isset($_POST['save'])){
     $query = sqlsrv_query($Con, $sql, array(), array( "Scrollable" => 'static' ));
     $count = sqlsrv_num_rows($query);
     $row = sqlsrv_fetch_array($run, SQLSRV_FETCH_ASSOC);
+    
+
+    
 
     if($count == 1){
+         $_SESSION['empname'] =$row['empname'];   
         header("location: pages/index.php");
+   
     }else{
         ?>
             <script>

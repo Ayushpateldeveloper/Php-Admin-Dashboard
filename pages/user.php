@@ -1,8 +1,10 @@
 <?php
+
 include('../includes/header.php');
 include('../includes/dbcon.php');
 $sql = 'SELECT * FROM user_data WHERE isActive = 1';
 $query = sqlsrv_query($Con, $sql);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
