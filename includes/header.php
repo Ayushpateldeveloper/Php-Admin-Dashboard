@@ -63,6 +63,7 @@
                         <a href="../pages/user.php" class="nav_link" id="userPage"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Users</span> </a> 
                         <a href="../pages/report.php" class="nav_link" id="report"> <i class='bx bxs-report'></i> <span class="nav_name">Bookmark</span> </a> 
                         <a href="../pages/graphdemo.php" class="nav_link" id="graph"> <i class='bx bx-bar-chart-square'></i> <span class="nav_name">Bookmark</span> </a> 
+                        <a href="../pages/memo.php" class="nav_link" id="memo"> <i class='bx bxs-bookmark' ></i> <span class="nav_name">Bookmark</span> </a> 
                         <a href="#" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Files</span> </a> 
                         <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Stats</span> </a> 
                         <a href="../pages/product.php" class="nav_link" id="product"> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Products</span> </a> 

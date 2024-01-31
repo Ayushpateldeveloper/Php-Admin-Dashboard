@@ -17,6 +17,7 @@ if(isset($_POST['save'])){
     
 
     if($count == 1){
+         $_SESSION['empid'] =$row['empid'];   
          $_SESSION['empname'] =$row['empname'];   
         header("location: pages/index.php");
    

@@ -16,7 +16,7 @@ if (isset($_POST['status'])) {
     
     $sql = "SELECT martial_status,count(martial_status) as count FROM user_data group by martial_status";
     $run = sqlsrv_query($Con, $sql);
-    while ($row = SQLSRV_FETCH_ARRAY($run, SQLSRV_FETCH_ASSOC)) {
+     while ($row = SQLSRV_FETCH_ARRAY($run, SQLSRV_FETCH_ASSOC)) {
         $data[] = array('y' => $row['count'], 'label' => $row['martial_status']);
     }
     
