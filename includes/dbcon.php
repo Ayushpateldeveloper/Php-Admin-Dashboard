@@ -1,4 +1,3 @@
-<!-- /* The code you provided is establishing a connection to a Microsoft SQL Server database using PHP. */ -->
 <?php 
 $serverName = "LAPTOP-S8SF7R0T\SQLEXPRESS";
 $connectionInfo = array("Database"=>"project","UID"=>"sa","PWD"=>"123456","CharacterSet" => "UTF-8");
